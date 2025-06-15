@@ -1,0 +1,39 @@
+Komendy.txt
+
+mkdir raporty
+chmod 700 raporty
+cd raporty
+student@student:~/raporty$ touch statystyki.csv
+student@student:~/raporty$ echo "miasto,populacja,rok" > statystyki.csv
+student@student:~/raporty$ echo "Warszawa , 1782435, 2024" > statystyki.csv
+student@student:~/raporty$ echo "Warszawa , 1782435, 2024" >> statystyki.csv
+student@student:~/raporty$ echo "Kraków , 782435, 2024" >> statystyki.csv
+student@student:~/raporty$ echo "Opole Lubelskie , 9435, 2024" >> statystyki.csv
+student@student:~/raporty$ echo "Łódź , 2442435, 2024" >> statystyki.csv
+student@student:~/raporty$ cat statystyki.csv
+student@student:~/raporty$ touch .archiwum_statystyk.csv
+student@student:~/raporty$ ls -la
+student@student:~/raporty$ find /etc =type f -name "*net*"
+student@student:~/raporty$ find / -type d -name "*log*" 2>/dev/null > logdirs.txt
+student@student:~/raporty$ tail -n +2 statystyki.csv | sort | nl > .archiwum_statystyk2.csv
+student@student:~/raporty$ diff .archiwum_statystyk.csv .archiwum_statystyk2.csv
+0a1,4
+>      1	Kraków , 782435, 2024
+>      2	Łódź , 2442435, 2024
+>      3	Opole Lubelskie , 9435, 2024
+>      4	Warszawa , 1782435, 2024
+student@student:~/raporty$ diff .archiwum_statystyk.csv .archiwum_statystyk2.csv
+0a1,4
+>      1	Kraków , 782435, 2024
+>      2	Łódź , 2442435, 2024
+>      3	Opole Lubelskie , 9435, 2024
+>      4	Warszawa , 1782435, 2024
+student@student:~/raporty$ sed 's/,/ /g' .archiwum_statystyk.csv > temp && mv temp .archiwum_statystyk.csv
+student@student:~/raporty$ sed -n '/,[0-9]*8[0-9]*,/p' statystyki.csv
+student@student:~/raporty$ df -h | awk 'NR==1 {print $6, $3, $4} NR>1 {used+=$3; avail+=$4; print $6, $3, $4} END {print "SUM", used, avail}'
+
+
+
+
+
+
